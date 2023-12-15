@@ -1,0 +1,72 @@
+/* FoodWithCategory.css */
+
+/* Styles for the search bar and category filter */
+input, select {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  /* Styles for the clickable list of categories */
+  .category-list {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .category-list span {
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 10px;
+    background-color: #484848;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .category-list span.selected {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  /* Styles for the food list */
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .container {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+  }
+  
+  .container img {
+    max-width: 150px;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+  
+  .food-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .food-info p {
+    margin: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 800px;
+    }
+  
+    p {
+      text-align: left;
+    }
+  }
+  
