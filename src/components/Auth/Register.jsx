@@ -9,10 +9,10 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [modalMessage, setModalMessage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const baseUrl="https://food-app-five-neon.vercel.app";
   const handleRegister = async () => {
     try {
-      await axios.post('http://localhost:3333/auth/register', { username, password });
+      await axios.post(`${baseUrl}/auth/register`, { username, password });
       console.log('done!');
       setModalMessage('Registration successful. You can now login.');
       setIsModalOpen(true);

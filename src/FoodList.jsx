@@ -6,6 +6,7 @@ import './App.css';
 
 const FoodList = () => {
   const [foods, setFoods] = useState([]);
+  const baseUrl = "https://food-app-five-neon.vercel.app";
 
 
 
@@ -27,7 +28,7 @@ const FoodList = () => {
     // Fetch food data from the server
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/api/food');
+        const response = await axios.get(`${baseUrl}/api/food`);
         setFoods(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

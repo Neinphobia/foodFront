@@ -7,6 +7,7 @@ const RemoveFood = () => {
   const navigate = useNavigate();
   const [foodId, setFoodId] = useState('');
   const [latestItem, setLatestItem] = useState('');
+  const baseUrl = "https://food-app-five-neon.vercel.app";
   
   const token = localStorage.getItem('token')
   const headers = {
@@ -15,7 +16,7 @@ const RemoveFood = () => {
   };
   const removeFood = async () => { //fnc
     try {
-      await axios.delete(`http://localhost:3333/api/food/${foodId}`,{headers});
+      await axios.delete(`${baseUrl}/api/food/${foodId}`,{headers});
       // Optionally, you can update the local state to reflect the changes
       setFoodId('');
       navigate('/');
@@ -26,7 +27,7 @@ const RemoveFood = () => {
 
   const handleGetLatestItem = async() => { //gets the latest item
     try {
-      const latest = await axios.get('http://localhost:3333/api/food/latest');
+      const latest = await axios.get(`${baseUrl}/api/food/latest`);
       setLatestItem(latest.data);
     } catch (error) {
       console.log('latest fail');

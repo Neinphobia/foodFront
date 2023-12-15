@@ -9,10 +9,11 @@ const Login = () => {
   const [modalMessage, setModalMessage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const baseUrl="https://food-app-five-neon.vercel.app";
 
   const handleLogin = async () => {
-    try {
-      const response = await axios.post('http://localhost:3333/auth/login', { username, password });
+    try {  
+      const response = await axios.post(`${baseUrl}/auth/login`, { username, password });
       const { token , user } = response.data;
 
       // Store the JWT in a secure manner (e.g., HTTP-only cookie or local storage)

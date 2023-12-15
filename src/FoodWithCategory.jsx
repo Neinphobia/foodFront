@@ -6,11 +6,11 @@ const FoodWithCategory = () => {
   const [filteredFoods, setFilteredFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(''); // Added state for category filter
-
+  const baseUrl = "https://food-app-five-neon.vercel.app";
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/api/food');
+        const response = await axios.get(`${baseUrl}/api/food`);
         setFoods(response.data);
         setFilteredFoods(response.data); // Initially set filteredFoods to all foods
       } catch (error) {
