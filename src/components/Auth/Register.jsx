@@ -28,10 +28,11 @@ const Register = () => {
       setIsModalOpen(true);
      
     }
-    const handleCloseModal = () => {
-      setIsModalOpen(false);
+   
+  };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
 
-    };
   };
 
   return (
