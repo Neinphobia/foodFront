@@ -75,3 +75,17 @@ li {
 .modal.show {
   display: flex;
 }
+
+
+.container {
+  animation: slide-in 1s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
