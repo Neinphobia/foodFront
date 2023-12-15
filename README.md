@@ -1,7 +1,7 @@
-#Food Management App Frontend
-##Installation
+# Food Management App Frontend
+## Installation
 npm intall
-###npm run dev
+### npm run dev
 
 #### React + Vite
 
