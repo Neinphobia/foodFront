@@ -42,8 +42,8 @@ const FoodList = () => {
     <div>
       <h2>Food List</h2>
       <ul>
-        {foods.map((food) => (
-          <li key={food._id}>
+        {foods.map((food, index) => (
+          <li key={food._id} style={{ '--delay': `${index * 0.1}s`, '--index': index + 1 }}>
             <div className="container">
             {food.image && <img src={food.image} alt={food.name} onClick={() => handleImageClick(food.image)} />}
               <div className="food-info">
