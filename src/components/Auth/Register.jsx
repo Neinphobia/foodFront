@@ -26,7 +26,12 @@ const Register = () => {
       console.error('Registration failed:', error);
       setModalMessage('Registration failed. Please choose a different username.');
       setIsModalOpen(true);
+     
     }
+    const handleCloseModal = () => {
+      setIsModalOpen(false);
+
+    };
   };
 
   return (
@@ -38,7 +43,7 @@ const Register = () => {
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <button onClick={handleRegister}>Register</button>
 
-      <Modal isOpen={isModalOpen} message={modalMessage} />
+      <Modal isOpen={isModalOpen} message={modalMessage} onClose={handleCloseModal} />
     </div>
   );
 };
