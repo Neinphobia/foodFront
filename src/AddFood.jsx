@@ -65,9 +65,21 @@ const AddFood = () => {
     }
    
   }
- //noo need replit auth
+  const handleNotification = ()=>{
+        Notification.requestPermission().then(perm => {
+            if (perm === "granted") {
+                const notification = new Notification("Example notification", {
+                    body: "Click notification test",
+                    data: { text: "test" },
+                })
+       
+            }
+            else {
+              console.log('denied');
+            }
+        })
 
-  
+  }
   return (
     <div>
      
@@ -113,6 +125,8 @@ const AddFood = () => {
         />
       <button onClick={addFood}>Add</button>
       <button onClick={handleGetLatestItem}>Get Latest Food</button>
+      <br />
+      <button onClick={handleNotification}>Allow Notification</button>
 
       {latestItem &&  (<>
         <ul>
