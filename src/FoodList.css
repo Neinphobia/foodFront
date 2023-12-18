@@ -79,7 +79,7 @@ li {
 
 .container {
   animation: slide-in 1s ease-out;
-  animation-delay: calc(var(--delay) * (1 + (0.1 * (var(--index) - 1))));
+
 }
 
 @keyframes slide-in {

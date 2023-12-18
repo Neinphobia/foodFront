@@ -43,7 +43,7 @@ const FoodList = () => {
       <h2>Food List</h2>
       <ul>
         {foods.map((food, index) => (
-          <li key={food._id} style={{ '--delay': `${index * 0.1}s`, '--index': index + 1 }}>
+          <li key={food._id}>
             <div className="container">
             {food.image && <img src={food.image} alt={food.name} onClick={() => handleImageClick(food.image)} />}
               <div className="food-info">
