@@ -16,6 +16,9 @@ const AddFood = () => {
     image: '',
     category:'',
   });
+  const [newOrder, setNewOrder] = useState({
+    name:'',
+  })
  
   const token = localStorage.getItem('token'); // Retrieve the token from local storage
 //console.log(token);
@@ -72,7 +75,7 @@ const AddFood = () => {
                     body: "Click notification test",
                     data: { text: "test" },
                 })
-       
+                
             }
             else {
               console.log('denied');
@@ -80,6 +83,23 @@ const AddFood = () => {
         })
 
   }
+  const handleAddOrder = async () => {
+    try {
+      await axios.post(`http://localhost:3333/order/post`, newOrder,{ headers });
+      swal(`${newOrder.name}`, {
+        buttons: false,
+        timer: 3000,
+        icon: "success",
+        title:`Added your order Successfully! Your order: `,
+      });
+      setNewOrder({
+        name:''
+      })
+    } catch (error) {
+      
+    }
+  }
+  
   return (
     <div>
      
@@ -127,6 +147,15 @@ const AddFood = () => {
       <button onClick={handleGetLatestItem}>Get Latest Food</button>
       <br />
       <button onClick={handleNotification}>Allow Notification</button>
+      <br />
+      <label>Order Name:</label>
+        <input
+          type="text"
+          value={newOrder.name}
+          onChange={(e) => setNewOrder({ ...newOrder, name: e.target.value })}
+          placeholder='Type your order...'
+        />
+          <button onClick={handleAddOrder}>Order</button>
 
       {latestItem &&  (<>
         <ul>
