@@ -47,8 +47,8 @@ const FoodList = () => {
             <div className="container">
             {food.image && <img src={food.image} alt={food.name} onClick={() => handleImageClick(food.image)} />}
               <div className="food-info">
-                <p><strong>{food.name}</strong></p>
-                <p>{food.description}</p>
+                <p><strong className='text-xs sm:text-sm md:text-base lg:text-lg'>{food.name}</strong></p>
+                <p className='text-xs sm:text-sm md:text-base lg:text-lg'>{food.description}</p>
                 <p>{food.price} $</p>
 
               </div>
