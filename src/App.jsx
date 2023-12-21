@@ -9,7 +9,7 @@ import Register from './components/Auth/Register';
 import Login from './components/Auth/Login';
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from './ProtectedRoute';
-
+import './index.css'
 
 function App() {
 

@@ -15,7 +15,7 @@ body.react-confirm-alert-body-element {
   right: 0;
   bottom: 0;
   z-index: 99;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(90, 74, 74, 0.9);
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -36,10 +36,10 @@ body.react-confirm-alert-body-element {
   width: 400px;
   padding: 30px;
   text-align: left;
-  background: #fff;
+  background: #423232;
   border-radius: 10px;
   box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);
-  color: #666;
+  color: #a0a0a0;
 }
 
 .react-confirm-alert-svg {
@@ -69,14 +69,14 @@ body.react-confirm-alert-body-element {
 
 .react-confirm-alert-button-group > button {
   outline: none;
-  background: #333;
+  background: #616161;
   border: none;
   display: inline-block;
   padding: 6px 18px;
-  color: #eee;
+  color: #e8e8e8;
   margin-right: 10px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 15px;
   cursor: pointer;
 }
 

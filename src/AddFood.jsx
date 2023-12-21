@@ -5,6 +5,7 @@ import './react-confirm-alert/src/react-confirm-alert.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './AddFood.css'; 
+import '../src/index.css';
 import swal from 'sweetalert';
 
 import { useSpring, animated } from 'react-spring'; 
@@ -144,11 +145,13 @@ const AddFood = () => {
           onClick: () => {
          
             deleteOrder(orderId);
-          }
+          },
+          className: 'bg-blue-500 text-white px-4 py-2 rounded'
         },
         {
           label: 'No',
-          onClick: () => {}
+          onClick: () => {},
+          className: 'bg-gray-500 text-white px-4 py-2 rounded'
         }
       ]
     });
@@ -237,6 +240,7 @@ const AddFood = () => {
           </li>
         </ul>
       </>)}
+   
       {orders &&  (<>
         <ul>
         
