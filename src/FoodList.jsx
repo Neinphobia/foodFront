@@ -11,9 +11,11 @@ const FoodList = () => {
 
 
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedDescription,setSelectedDescription] = useState(null);
   //const modalRef = useRef(null);
-  const handleImageClick = (image) => {
+  const handleImageClick = (image,description) => {
     setSelectedImage(image);
+    setSelectedDescription(description);
   };
 
   const handleCloseModal = (event) => {
@@ -45,11 +47,11 @@ const FoodList = () => {
         {foods.map((food, index) => (
           <li key={food._id}>
             <div className="container">
-            {food.image && <img src={food.image} alt={food.name} onClick={() => handleImageClick(food.image)} />}
+            {food.image && <img src={food.image} alt={food.name} onClick={() => handleImageClick(food.image,food.description)} />}
               <div className="food-info">
                 <p><strong className='text-xs sm:text-sm md:text-base lg:text-lg'>{food.name}</strong></p>
                 <p className='text-xs sm:text-sm md:text-base lg:text-lg'>{food.description}</p>
-                <p>{food.price} $</p>
+                <p className='text-xs sm:text-sm md:text-base lg:text-lg'>{food.price} $</p>
 
               </div>
             </div>
@@ -61,8 +63,16 @@ const FoodList = () => {
 
       {selectedImage && (
         <div className="modal show" onClick={handleCloseModal}>
-          <img src={selectedImage} alt="Selected Food" />
+          <img src={selectedImage} alt="Selected Food" /> 
+          <details>
+          <summary>See description</summary>
+             <p>
+              {selectedDescription}
+             </p>
+            
+          </details>
         </div>
+        
       )}
     
 
