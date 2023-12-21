@@ -1,5 +1,7 @@
 // AddFood.js
 import React, { useEffect, useState } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import './react-confirm-alert/src/react-confirm-alert.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './AddFood.css'; 
@@ -118,7 +120,7 @@ const AddFood = () => {
     }
   }
 
-  const handleDeleteOrder = async (id) => {
+  const deleteOrder = async (id) => {
     try {
       await axios.delete(`${baseUrl}/order/${id}`,{headers});
       swal(`${id}`, {
@@ -132,7 +134,25 @@ const AddFood = () => {
     }
 
   } 
-
+  const handleDeleteOrder = (orderId) => {
+    confirmAlert({
+      title: 'Confirm to delete',
+      message: 'Are you sure to delete this order?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+         
+            deleteOrder(orderId);
+          }
+        },
+        {
+          label: 'No',
+          onClick: () => {}
+        }
+      ]
+    });
+   };
 
   useEffect(() => {
     // Fetch food data from the server
