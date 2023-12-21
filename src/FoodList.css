@@ -13,7 +13,7 @@ li > a {
   color: #f5f5f5;
 }
 .container img {
-  max-width: 150px;
+  max-width: 110px;
   margin-right: 10px;
   border-radius: 8px;
   cursor: pointer;
@@ -25,13 +25,12 @@ li > a {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 10px;
+  padding: 2px;
   color: #7C4700; /* Warm color */
 }
 
 .food-info p {
   margin: 0;
-  font-size: large;
 }
 
 ul {
@@ -44,7 +43,8 @@ li {
 
 @media (min-width: 768px) {
   .container {
-    max-width: 800px;
+
+    width: auto;
   }
 
   p {

@@ -1,8 +1,8 @@
 // FoodList.js
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import './FoodList.css'; // Import the CSS file
 import './App.css';
+import './FoodList.css'; // Import the CSS file
 
 const FoodList = () => {
   const [foods, setFoods] = useState([]);
