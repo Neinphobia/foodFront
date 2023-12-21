@@ -84,11 +84,18 @@ li {
   display: flex;
   flex-direction: column;
   font-size: 0.77rem;
-  max-width: 250px;
+  max-width: 550px;
   
 
 }
-
+@media (max-width: 480px) {
+  .modal.show p {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.77rem;
+    max-width: 250px;
+  }
+}
 
 .container {
   animation: slide-in 1s ease-out;
