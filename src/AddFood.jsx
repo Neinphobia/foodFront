@@ -1,14 +1,22 @@
 // AddFood.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './AddFood.css'; 
 import swal from 'sweetalert';
 
+import { useSpring, animated } from 'react-spring'; 
+
+
 const AddFood = () => {
+
+
+
+
   const baseUrl = "https://food-app-five-neon.vercel.app";
   const navigate = useNavigate();
   const [latestItem, setLatestItem] = useState(null);
+  const [orders, setOrders] = useState(null);
   const [newFood, setNewFood] = useState({
     name: '',
     description: '',
@@ -85,7 +93,7 @@ const AddFood = () => {
   }
   const handleAddOrder = async () => {
     try {
-      await axios.post(`http://localhost:3333/order/post`, newOrder,{ headers });
+      await axios.post(`${baseUrl}/order/post`, newOrder,{ headers });
       swal(`${newOrder.name}`, {
         buttons: false,
         timer: 3000,
@@ -99,11 +107,52 @@ const AddFood = () => {
       
     }
   }
+
+  const getOrders = async () => {
+    try {
+      const orders = await axios.get(`${baseUrl}/order/order/`);
+      setOrders(orders.data);
+      console.log(orders.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handleDeleteOrder = async (id) => {
+    try {
+      await axios.delete(`${baseUrl}/order/${id}`,{headers});
+      swal(`${id}`, {
+        buttons: false,
+        timer: 2000,
+        icon: "success",
+        title:`Deleted Successfully!`,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+  } 
+
+
+  useEffect(() => {
+    // Fetch food data from the server
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${baseUrl}/order/`);
+        setOrders(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [orders]);
+
+
   
   return (
     <div>
-     
-      {/* <button onClick={LoginWithReplt}> Login With Replit </button>  */}
+    
       <h2>Add Food</h2>
       <div>
         <label>Name:</label>
@@ -148,6 +197,8 @@ const AddFood = () => {
       <br />
       <button onClick={handleNotification}>Allow Notification</button>
       <br />
+      <button onClick={getOrders}>See the Orders:</button>
+      <br />
       <label>Order Name:</label>
         <input
           type="text"
@@ -166,6 +217,25 @@ const AddFood = () => {
           </li>
         </ul>
       </>)}
+      {orders &&  (<>
+        <ul>
+        
+          {orders
+            .slice() // Create a copy of the array to avoid modifying the original
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)) // Sort by date in descending order
+            .map((order, index) => (
+            <div className="orderContainer">
+
+            <li key={order._id}>
+            <p>{order.name}</p>
+            <button onClick={() => handleDeleteOrder(order._id)}>Delete Order</button>
+            <input type="text" value={order._id} readOnly/>
+            </li>
+            </div>
+        ))}
+        </ul>
+      </>)}
+      
     </div>
   );
 };
