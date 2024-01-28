@@ -42,7 +42,7 @@ function App() {
   }, []); 
   return (
     <Router>
-      <NavBar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+      <NavBar isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
       <div>
         <h1>Food App</h1>
         <nav>

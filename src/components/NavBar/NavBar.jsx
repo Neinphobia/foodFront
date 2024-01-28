@@ -47,9 +47,9 @@ const NavBar = () => {
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
-        <div>
+        <div className="animate-pulse">
           <p>Not logged in</p>
-          <Link to="/login">Login</Link>
+          <Link to="/login" className="animate-bounce">Login</Link>
           <Link to="/register">Register</Link>
         </div>
       )}

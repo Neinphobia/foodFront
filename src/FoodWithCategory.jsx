@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './FoodWithCategory.css';
+import './FoodList.css'; 
 const FoodWithCategory = () => {
   const [foods, setFoods] = useState([]);
   const [filteredFoods, setFilteredFoods] = useState([]);
@@ -58,6 +59,23 @@ const FoodWithCategory = () => {
     setFilteredFoods(filtered);
   };
 
+
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  //const modalRef = useRef(null);
+  const handleImageClick = (image,description) => {
+    setSelectedImage(image);
+    setSelectedDescription(description);
+  };
+
+  const handleCloseModal = (event) => {
+      
+    if (event.target.className === 'modal show') {
+      setSelectedImage(null);
+    }
+  
+  };
   return (
     <div>
       <h2>Food List</h2>
@@ -92,8 +110,8 @@ const FoodWithCategory = () => {
       <ul>
         {filteredFoods.map((food) => (
           <li key={food._id}>
-            <div className="container">
-              {food.image && <img src={food.image} alt={food.name} />}
+            <div className="container animate-fadeIn">
+              {food.image && <img src={food.image} alt={food.name} onClick={() => handleImageClick(food.image) }  />}
               <div className="food-info">
                 <p>{food.name}</p>
                 <p>{food.description}</p>
@@ -103,6 +121,12 @@ const FoodWithCategory = () => {
           </li>
         ))}
       </ul>
+      {selectedImage && (
+        <div className="modal show" onClick={handleCloseModal}>
+          <img src={selectedImage} alt="Selected Food" /> 
+        </div>
+        
+      )}
     </div>
   );
 };

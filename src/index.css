@@ -10,7 +10,7 @@
 
   color-scheme: light dark;
   color: #F5F5F5; /* Light color for contrast */
-  background-color: #3D3D3D; /* Dark color */
+ /* background-color: #3d3d3d39; /* Dark color */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,6 +33,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url('../public/background3.jpg');
+  background-repeat:repeat-y;
+  
+  
 }
 
 h1 {

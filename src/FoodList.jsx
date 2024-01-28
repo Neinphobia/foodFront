@@ -46,10 +46,10 @@ const FoodList = () => {
       <ul>
         {foods.map((food, index) => (
           <li key={food._id}>
-            <div className="container">
-            {food.image && <img src={food.image} alt={food.name} onClick={() => handleImageClick(food.image,food.description)} />}
+            <div className="container animate-fadeIn">
+            {food.image && <img src={food.image} alt={food.name} onClick={() => handleImageClick(food.image,food.description) } />}
               <div className="food-info">
-                <p><strong className='text-xs sm:text-sm md:text-base lg:text-lg'>{food.name}</strong></p>
+                <p><strong className='text-xs sm:text-sm md:text-base lg:text-lg animate-pulse'>{food.name}</strong></p>
                 <p className='text-xs sm:text-sm md:text-base lg:text-lg'>{food.description}</p>
                 <p className='text-xs sm:text-sm md:text-base lg:text-lg'>{food.price} $</p>
 
