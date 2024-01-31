@@ -13,7 +13,7 @@ import './index.css'
 
 function App() {
 
-
+  console.log('hi');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isRoleAdmin, setIsRoleAdmin] = useState(false);
   const handleLogout = () => {
